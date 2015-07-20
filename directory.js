@@ -6,8 +6,8 @@ var debug = require('debug')('pigato:cli');
 
 program
   .version('0.0.1')
-  .option('-d, --directory', 'directory server')
-  .option('-c, --client', 'directory client')
+  .option('-d, --directory', 'launch only the directory server')
+  .option('-c, --client', 'launch only the directory client')
   .option('-v, --verbose', 'verbose')
   .option('-e, --endpoint [endpoint]', 'set Endpoint [tcp://127.0.0.1:50000]',
     'tcp://127.0.0.1:50000')
@@ -63,7 +63,6 @@ function startDirectoryIfNeeded(program, cb) {
     /* </neededBeacauseOf pigato issues #53> */
 
   directory = new Pigato.services.Directory(program.endpoint, conf);
-
   directory.start();
   directory.sub.once('message', function() {
     setImmediate(cb);
