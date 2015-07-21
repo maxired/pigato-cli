@@ -7,8 +7,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Maxence Dalmais <github@maxired.fr>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxired/pigato-cli"
+  },
+  "bugs": {
+    "url": "https://github.com/maxired/pigato-cli/issues"
+  },
   "dependencies": {
     "commander": "^2.8.1",
     "debug": "^2.2.0",
