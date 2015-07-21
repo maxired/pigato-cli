@@ -45,22 +45,6 @@ function startDirectoryIfNeeded(program, cb) {
   debug('will start Directory service with endpoint %s and conf %s', program.endpoint,
     JSON.stringify(conf));
   var directory
-  var nbReboot = 0;
-
-  /* <neededBeacauseOf pigato issues #53> */
-  conf.onStart = function() {
-    if (nbReboot == 0) {
-      directory.stop();
-    };
-
-  };
-  conf.onStop = function() {
-      if (nbReboot == 0) {
-        nbReboot++;
-        directory.start();
-      }
-    }
-    /* </neededBeacauseOf pigato issues #53> */
 
   directory = new Pigato.services.Directory(program.endpoint, conf);
   directory.start();
